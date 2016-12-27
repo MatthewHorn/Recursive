@@ -1,3 +1,4 @@
+package me.matthorn.recursion;
 
 public class Recursive {
 
@@ -6,6 +7,9 @@ public class Recursive {
 	 * NO LOCAL VARIABLES
 	 *  returns the factorial of n 
 	 */
+	public int factorial(int n) {
+		return n == 1 ? 1 : n * factorial(n - 1);
+	}
 
 	/**afactorial
 	 * @param int n, int m
@@ -14,6 +18,10 @@ public class Recursive {
 	 *  multiplied in ascending order
   	 *  example: 1 * 2 * 3 * 4 * 5
 	 */
+	public int afactorial(int n, int m) {
+		// TODO: Why two arguments?
+		
+	}
 		
 	/**dfactorial
 	 * @param int n
