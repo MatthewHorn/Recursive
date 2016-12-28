@@ -42,7 +42,6 @@ public class Iterative {
 			System.out.printf("%d%s", n, n > 1 ? " * " : "");
 			total *= n--;
 		}
-		System.out.print('\n');
 		return total;
 	}
 
