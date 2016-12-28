@@ -19,8 +19,13 @@ public class Recursive {
   	 *  example: 1 * 2 * 3 * 4 * 5
 	 */
 	public int afactorial(int n, int m) {
-		// TODO: Why two arguments?
-		
+		if (n == m) {
+			System.out.printf("%d", n);
+			return n;
+		} else {
+			System.out.printf(" * %d", n);
+			return n * afactorial(n - 1, m);
+		}
 	}
 		
 	/**dfactorial
