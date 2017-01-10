@@ -62,40 +62,18 @@ public class Iterative {
 	 *  prints out the fibonacci sequence with a start value of s and 
 	 *  provides the first n terms 
 	 */
-	public int fibonacciSequence(int s, int n) {
-		// TODO: The following algorithm starts at the very beginning of the
-		// sequence, then moves forward, eventually printing out terms that are
-		// greater than (or equal to) s. Is this how it should be done?
-		
-		int a = 1, b = 1;	// Some great names there
-		while (n > 0) {
+	public void fibonacciSequence(int s, int n) {
+		int r = 0;
+		while (n-- > 0) {
+			System.out.printf("%d%s", s, n == 0 ? "\n" : ", ");
 			
-			// Swap a and b with some magic
-			a ^= b;
-			b ^= a;
-			a ^= b;
+			// Bitwise XOR swap
+			r ^= s;
+			s ^= r;
+			r ^= s;
 			
-			// That swap trick works with any two opposite operations, so this
-			// will do just the same:
-			// a = a + b;
-			// b = a - b;
-			// a = a - b;
-			// but a) Overflow (or underflow) can mess with the algorithm and
-			// b) XOR is its own opposite operation. Also, that swap is
-			// potentially dangerous if a and b may be two pointers to the same
-			// value, but Java isn't good enough to have references, so we're
-			// good to use it here.
-			
-			b += a;
-			
-			if (b >= s) {
-				--n;
-				System.out.printf("%d ", b);
-			}
-			
+			s += r;
 		}
-		System.out.print('\n');
-		return b;
 	}
 	
 	/**fibonacciSeries
@@ -105,22 +83,16 @@ public class Iterative {
 	 *  with a start value of s 
 	 */
 	public int fibonacciSeries(int s, int n) {
-		// TODO: Same deal as in the fibonacciSequence method
-		int a = 1, b = 1, sum = 0;
-		while (n > 0) {
-			a ^= b;
-			b ^= a;
-			a ^= b;
+		int r = 0, sum = 0;
+		while (n-- > 0) {
+			sum += s;
 			
-			b += a;
+			r ^= s;
+			s ^= r;
+			r ^= s;
 			
-			if (b >= s) {
-				--n;
-				sum += b;
-				System.out.printf("%d ", b);
-			}
+			s += r;
 		}
-		System.out.print('\n');
 		return sum;
 	}
 	
