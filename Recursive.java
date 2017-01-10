@@ -64,10 +64,11 @@ public class Recursive {
 	 *  print out the fibonacci sequence with a start value of s and 
 	 *  provides the first n terms 
 	 */
-	public int fibonacciSequence(int s, int n) {
+	public void fibonacciSequence(int s, int r, int n) {
 		// "since all iterative functions can be done recursively..."
-		// [citation needed]
-	
+		// Doubt it.
+		System.out.printf("%d%s", r, n == 1 ? "\n" : ", ");
+		if (n > 1) fibonacciSequence(r, s + r, n - 1);
 	}
 
 	/**fibonacciSeries
@@ -76,5 +77,6 @@ public class Recursive {
 	 *  returns the sums the first n digits of a fibonacci sequence 
 	 *  with a start value of s 
 	 */
+	//public int fibonacciSeries(int)
 	
 }
