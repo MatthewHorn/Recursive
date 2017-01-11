@@ -26,6 +26,7 @@ public class Iterative {
 			System.out.printf("%d%s", index, index == n ? "" : " * ");
 			total *= index++;
 		}
+		if (n == 0) System.out.print("1");
 		return total;
 	}
 
@@ -42,6 +43,7 @@ public class Iterative {
 			System.out.printf("%d%s", n, n > 1 ? " * " : "");
 			total *= n--;
 		}
+		if (n == 0) System.out.print("1");
 		return total;
 	}
 
@@ -51,8 +53,8 @@ public class Iterative {
 	 *  returns the value of the base (b) to the exp (exp) 
 	 */
 	public int intBasesToIntPowers(int b, int exp) {
-		int total = b;
-		while (exp-- > 1) total *= b;
+		int total = 1;
+		while (exp-- > 0) total *= b;
 		return total;
 	}
 	
@@ -65,7 +67,7 @@ public class Iterative {
 	public void fibonacciSequence(int s, int n) {
 		int r = 0;
 		while (n-- > 0) {
-			System.out.printf("%d%s", s, n == 0 ? "\n" : ", ");
+			System.out.printf("%d%s", s, n == 0 ? "" : ", ");
 			
 			// Bitwise XOR swap
 			r ^= s;
@@ -80,7 +82,7 @@ public class Iterative {
 	 * @param int s, int n
 	 * NO LIMIT (WITHIN REASON) ON LOCAL VARIABLE
 	 *  returns the sums the first n digits of a fibonacci sequence 
-	 *  with a start value of s 
+	 *  with  a start value of s 
 	 */
 	public int fibonacciSeries(int s, int n) {
 		int r = 0, sum = 0;
