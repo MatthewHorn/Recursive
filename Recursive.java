@@ -8,7 +8,7 @@ public class Recursive {
 	 *  returns the factorial of n 
 	 */
 	public int factorial(int n) {
-		return n == 1 ? 1 : n * factorial(n - 1);
+		return n == 0 ? 1 : n * factorial(n - 1);
 	}
 
 	/**afactorial
@@ -19,7 +19,7 @@ public class Recursive {
   	 *  example: 1 * 2 * 3 * 4 * 5
 	 */
 	public int afactorial(int n, int m) {
-		if (n == 1) {
+		if (n == 0) {
 			System.out.printf("%d", m);
 			return 1;
 		} else {
@@ -77,6 +77,9 @@ public class Recursive {
 	 *  returns the sums the first n digits of a fibonacci sequence 
 	 *  with a start value of s 
 	 */
-	//public int fibonacciSeries(int)
+	public int fibonacciSeries(int s, int r, int n, int sum) {
+		if (n == 0) return sum;
+		else return fibonacciSeries(r, s + r, n - 1, sum + r);
+	}
 	
 }
